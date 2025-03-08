@@ -14,7 +14,7 @@ gdown.download(url, output, quiet=False)
 
 # Baca file CSV
 df = pd.read_csv(output)
-df = load_data()
+
 # Judul Dashboard
 st.title("Dashboard Analisis Polusi Udara")
 st.write("menampilkan analisis konsentrasi polutan, dan faktor-faktor yang mempengaruhinya")
