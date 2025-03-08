@@ -4,11 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load Dataset
-@st.cache
-def load_data():
-    return pd.read_csv("D:\SubmissionOne\AirQuality.csv") 
-
-df = load_data()
+url = "https://drive.google.com/uc?id=1v-j-t-wneQP95aPGKfzUFrh9eYQ-tIIo"
+df = pd.read_csv(url)
 
 # Judul Dashboard
 st.title("Dashboard Analisis Polusi Udara")
