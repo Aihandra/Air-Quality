@@ -2,15 +2,9 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import gdown
 
-# ID dari file Google Drive
-file_id = "1v-j-t-wneQP95aPGKfzUFrh9eYQ-tIIo"
-url = f"https://drive.google.com/uc?export=download&id={file_id}"
-
-# Unduh file
-output = "dataset.csv"
-gdown.download(url, output, quiet=False)
+url = "https://drive.google.com/uc?export=download&id=1v-j-t-wneQP95aPGKfzUFrh9eYQ-tIIo"
+df = pd.read_csv(url)
 
 # Baca file CSV
 df = pd.read_csv(output)
