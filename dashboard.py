@@ -6,9 +6,6 @@ import seaborn as sns
 url = "https://drive.google.com/uc?export=download&id=1v-j-t-wneQP95aPGKfzUFrh9eYQ-tIIo"
 df = pd.read_csv(url)
 
-# Baca file CSV
-df = pd.read_csv(output)
-
 # Judul Dashboard
 st.title("Dashboard Analisis Polusi Udara")
 st.write("menampilkan analisis konsentrasi polutan, dan faktor-faktor yang mempengaruhinya")
