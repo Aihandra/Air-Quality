@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-url = "https://drive.google.com/uc?export=download&id=1v-j-t-wneQP95aPGKfzUFrh9eYQ-tIIo"
+url = "https://drive.google.com/file/d/1_a-q8mEc5oJkf3jaAnEiId_nN3KhXtxA/view?usp=drivesdk"
 df = pd.read_csv(url)
 
 # Judul Dashboard
