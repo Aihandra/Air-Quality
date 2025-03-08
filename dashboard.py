@@ -2,11 +2,16 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import gdown
 
 # Load Dataset
 url = "https://drive.google.com/uc?id=1v-j-t-wneQP95aPGKfzUFrh9eYQ-tIIo"
-df = pd.read_csv(url)
 
+@st.cache_data
+def load_data():
+    return pd.read_csv(url)
+
+df = load_data()
 # Judul Dashboard
 st.title("Dashboard Analisis Polusi Udara")
 st.write("menampilkan analisis konsentrasi polutan, dan faktor-faktor yang mempengaruhinya")
