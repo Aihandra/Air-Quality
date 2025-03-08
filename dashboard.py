@@ -2,10 +2,20 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import gdown
 
-url = "https://drive.google.com/file/d/1B-hUyNMw4ytdvRwgaVuhkkfb3WAVyx4V/view?usp=sharing"
-df = pd.read_csv(url)
+# Link Google Drive (dengan file ID)
+file_id = "1B-hUyNMw4ytdvRwgaVuhkkfb3WAVyx4V"
+url = f"https://drive.google.com/uc?export=download&id={file_id}"
 
+# Nama file setelah diunduh
+output = "AirQuality.csv"
+
+# Download file
+gdown.download(url, output, quiet=False)
+
+# Baca CSV
+df = pd.read_csv(output)
 # Judul Dashboard
 st.title("Dashboard Analisis Polusi Udara")
 st.write("menampilkan analisis konsentrasi polutan, dan faktor-faktor yang mempengaruhinya")
