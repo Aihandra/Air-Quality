@@ -5,7 +5,8 @@ import seaborn as sns
 import gdown
 
 # ID dari file Google Drive
-url = f"https://drive.google.com/uc?export=download&id=1v-j-t-wneQP95aPGKfzUFrh9eYQ-tIIo"
+file_id = "1v-j-t-wneQP95aPGKfzUFrh9eYQ-tIIo"
+url = f"https://drive.google.com/uc?export=download&id={file_id}"
 
 # Unduh file
 output = "dataset.csv"
