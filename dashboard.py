@@ -24,6 +24,12 @@ st.write("menampilkan analisis konsentrasi polutan, dan faktor-faktor yang mempe
 st.header("Statistik Deskriptif")
 included_columns = ["PM2.5",	"PM10",	"SO2",	"NO2",	"CO",	"O3",	"TEMP",	"PRES",	"DEWP",	"RAIN",	"wd",	"WSPM"]
 st.write(df[included_columns].describe())
+# Fitur interaktif: Pilih lokasi untuk eksplorasi
+station_list = df["station"].unique()
+selected_station = st.selectbox("Pilih Lokasi:", station_list)
+filtered_data = df[df["station"] == selected_station]
+st.subheader(f"Statistik Deskriptif untuk {selected_station}")
+st.write(filtered_data.describe())
 
 # Hubungan Suhu (TEMP) terhadap Polutan
 st.header("Hubungan Suhu dengan Konsentrasi Polutan")
