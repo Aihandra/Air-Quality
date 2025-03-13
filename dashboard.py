@@ -61,6 +61,31 @@ plt.title("Dampak Kecepatan Angin terhadap Konsentrasi Polutan")
 plt.legend()
 st.pyplot(fig2)
 
+# fitur interaktif
+st.header("Eksplorasi Data Kualitas Udara")
+selected_pollutant = st.selectbox("Pilih jenis polutan:", pollutants)
+
+# memilih variabel independen 
+selected_variable = st.radio("variabel pengaruh:", ["Suhu (TEMP)", "Kecepatan Angin (WSPM)"])
+
+# Plot sesuai dengan pilihan user
+fig, ax = plt.subplots(figsize=(10, 6))
+
+if selected_variable == "Suhu (TEMP)":
+    df_temp_pollution = df.groupby("TEMP")[selected_pollutant].mean().reset_index()
+    sns.lineplot(data=df_temp_pollution, x="TEMP", y=selected_pollutant, ax=ax, marker="o", color="b")
+    plt.xlabel("Suhu (°C)")
+    plt.title(f"Hubungan Suhu dengan Konsentrasi {selected_pollutant}")
+else:
+    df_wind_pollution = df.groupby("WSPM")[selected_pollutant].mean().reset_index()
+    sns.lineplot(data=df_wind_pollution, x="WSPM", y=selected_pollutant, ax=ax, marker="o", color="r")
+    plt.xlabel("Kecepatan Angin (m/s)")
+    plt.title(f"Dampak Kecepatan Angin terhadap Konsentrasi {selected_pollutant}")
+
+plt.ylabel(f"Konsentrasi {selected_pollutant}")
+st.pyplot(fig)
+
+
 # Lokasi dengan Polusi Terendah
 st.header("Lokasi dengan Tingkat Polusi Terendah")
 location_pollution = df.groupby('station')[pollutants].mean()
